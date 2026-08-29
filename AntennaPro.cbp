@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AntennaPro" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/AntennaPro" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-std=c++17" />
+					<Add option="-Wall" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/AntennaPro" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++17" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DUNICODE" />
+			<Add option="-D_UNICODE" />
+			<Add option="-DNOMINMAX" />
+			<Add directory="include" />
+			<Add directory="resources" />
+		</Compiler>
+		<Linker>
+			<Add option="-municode" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="comctl32" />
+			<Add library="comdlg32" />
+			<Add library="user32" />
+			<Add library="kernel32" />
+		</Linker>
+		<Unit filename="include/AntennaModel.h" />
+		<Unit filename="include/GLRenderer.h" />
+		<Unit filename="include/MatchDiagram.h" />
+		<Unit filename="resources/app.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="resources/resource.h" />
+		<Unit filename="src/AntennaModel.cpp" />
+		<Unit filename="src/GLRenderer.cpp" />
+		<Unit filename="src/MatchDiagram.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

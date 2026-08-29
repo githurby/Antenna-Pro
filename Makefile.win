@@ -1,0 +1,16 @@
+CXX := g++
+CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -DUNICODE -D_UNICODE -DNOMINMAX -Iinclude -Iresources
+LDFLAGS := -mwindows -municode -lopengl32 -lgdi32 -lcomctl32 -lcomdlg32 -luser32 -lkernel32
+SRC := src/main.cpp src/AntennaModel.cpp src/GLRenderer.cpp src/MatchDiagram.cpp
+OBJ := $(SRC:.cpp=.o)
+RESOBJ := resources/app_res.o
+all: AntennaPro.exe
+AntennaPro.exe: $(OBJ) $(RESOBJ)
+	$(CXX) -o $@ $^ $(LDFLAGS)
+$(RESOBJ): resources/app.rc resources/app.ico resources/resource.h
+	windres -Iresources resources/app.rc -O coff -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+clean:
+	del /Q src\\*.o AntennaPro.exe 2>NUL || exit 0
+.PHONY: all clean
